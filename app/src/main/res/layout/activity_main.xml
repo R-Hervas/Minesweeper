@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/netherstorm_cut"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/activiy_main_flagsleft"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/default_count"
+            android:textSize="48sp"
+            android:fontFamily="@font/dsdigi"
+            android:background="@drawable/black_display"
+            android:textColor="@color/purple"
+            android:gravity="center"
+       />
+
+        <TextView
+            android:id="@+id/activiy_main_smiley"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:textSize="64sp"
+            android:background="@drawable/time_rewinder_plus"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/activity_main_timer"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:background="@drawable/black_display"
+            android:fontFamily="@font/dsdigi"
+            android:text="@string/default_count"
+            android:textColor="@color/purple"
+            android:textSize="48sp"
+            android:gravity="center"
+        />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_main_grid"
+        android:layout_width="wrap_content"
+        android:layout_height="360dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/activity_main_bomb"
+        android:layout_width="71dp"
+        android:layout_height="67dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_main_grid"
+        app:layout_constraintVertical_bias="0.492"
+        app:srcCompat="@drawable/goblin_bomb_cut" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

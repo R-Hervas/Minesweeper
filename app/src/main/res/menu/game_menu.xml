@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_instructions"
+        android:titleCondensed="Instrucciones"
+        android:title="Como Jugar"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_new_game"
+        android:titleCondensed="Nueva Partida"
+        android:title="Resetear Partida"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_change_level"
+        android:titleCondensed="Cambiar Nivel"
+        android:title="Cambiar Nivel"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_exit"
+        android:titleCondensed="Salir"
+        android:title="Salir"
+        app:showAsAction="always"/>
+</menu>
