@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements OnBoxClickListene
     MediaPlayer victory_music;
     int bombDrawable = R.drawable.goblin_bomb_cut;
     private Activity thisActivity = this;
-    private int size = 10;
+    private int size = 8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements OnBoxClickListene
 
         smiley = findViewById(R.id.activiy_main_smiley);
         smiley.setOnClickListener(view -> {
-                createNewGame(10,10);
+                createNewGame(size,(int) Math.floor((size*size/10)+2));
         });
 
         bombSelected = findViewById(R.id.activity_main_bomb);
@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity implements OnBoxClickListene
         };
 
         boardRecyclerView = findViewById(R.id.activity_main_grid);
-        boardRecyclerView.setLayoutManager(new GridLayoutManager(this, 10));
-        game = new Game(10, 10);
+        boardRecyclerView.setLayoutManager(new GridLayoutManager(this, size));
+        game = new Game(size, (int) Math.floor((size*size/10)+2));
         boardAdapter = new BoardAdapter(game.getBoard().getBoxes(), this, bombDrawable);
         boardRecyclerView.setAdapter(boardAdapter);
         flagsCount.setText(String.format("%03d", game.getNumberOfBombs() - game.getFlagCount()));
@@ -131,21 +131,22 @@ public class MainActivity extends AppCompatActivity implements OnBoxClickListene
                             alertDialog.show();
                             break;
                         case R.id.menu_new_game:
-                                createNewGame(size, (int) Math.floor(size*size/10));
+                            createNewGame(size, (int) Math.floor(size*size/10)+2);
                             break;
                         case R.id.menu_change_level:
                             String level = "Normal";
-                            if (size == 10) {
+                            if (size == 8) {
                                 level = "Dificil";
-                                size = 12;
-                            } else if (size == 12) {
+                                size = 11;
+                            } else if (size == 11) {
                                 level = "Facil";
-                                size = 7;
+                                size = 5;
                             } else {
                                 level = "Normal";
-                                size = 10;
+                                size = 8;
                             }
-                            createNewGame(size, (int) Math.floor(size*size/10));
+                            createNewGame(size, (int) Math.floor((size*size/10)+2));
+                            boardRecyclerView.setLayoutManager(new GridLayoutManager(thisActivity, size));
                             Toast.makeText(thisActivity.getApplicationContext(), "Jugando en modo " + level, Toast.LENGTH_SHORT).show();
                             break;
                         case R.id.menu_exit:
@@ -230,5 +231,6 @@ public class MainActivity extends AppCompatActivity implements OnBoxClickListene
         defeat_music.pause();
         background_music.seekTo(0);
         background_music.start();
+        boardRecyclerView.setLayoutManager(new GridLayoutManager(thisActivity, size));
     }
 }

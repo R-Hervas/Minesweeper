@@ -3,6 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/ab_submenu"
-        android:title="❔"
+        android:title="ℹ️"
         app:showAsAction="always"/>
 </menu>
